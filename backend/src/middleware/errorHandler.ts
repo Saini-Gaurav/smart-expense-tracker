@@ -10,7 +10,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
   if (err instanceof MongooseError.ValidationError) {
     statusCode = 400;
     message = Object.values(err.errors)
-      .map((value) => value.message)
+      .map((value) => (value as Error).message)
       .join(', ');
   }
 
