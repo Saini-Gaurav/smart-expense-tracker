@@ -241,16 +241,36 @@ body {
   box-shadow: 0 0 0 3px var(--accent-dim);
 }
 
-/* Native date inputs have a large intrinsic min-width; keep them inside cards on mobile */
+/* Native date inputs: constrain width; iOS/WebKit needs explicit datetime-edit color or text is invisible on dark UI */
 input[type='date'].field-input {
   min-width: 0;
   max-width: 100%;
+  color-scheme: dark;
+  color: var(--text);
+  cursor: pointer;
+  /* iOS often collapses height / hides glyphs without a stable box size */
+  min-height: 2.75rem;
+  line-height: 1.25;
 }
 
-@media (max-width: 899px) {
-  input[type='date'].field-input {
-    color-scheme: dark;
-  }
+input[type='date'].field-input::-webkit-datetime-edit,
+input[type='date'].field-input::-webkit-datetime-edit-fields-wrapper,
+input[type='date'].field-input::-webkit-datetime-edit-text,
+input[type='date'].field-input::-webkit-datetime-edit-month-field,
+input[type='date'].field-input::-webkit-datetime-edit-day-field,
+input[type='date'].field-input::-webkit-datetime-edit-year-field {
+  color: var(--text);
+}
+
+input[type='date'].field-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.75;
+  filter: invert(0.85);
+}
+
+input[type='date'].field-input:hover::-webkit-calendar-picker-indicator,
+input[type='date'].field-input:focus::-webkit-calendar-picker-indicator {
+  opacity: 1;
 }
 
 @media (min-width: 900px) {
@@ -277,22 +297,6 @@ input[type='date'].field-input {
   select.field-input option {
     color: var(--text);
     background: var(--surface-2);
-  }
-
-  input[type='date'].field-input {
-    cursor: pointer;
-    color-scheme: dark;
-  }
-
-  input[type='date'].field-input::-webkit-calendar-picker-indicator {
-    cursor: pointer;
-    opacity: 0.75;
-    filter: invert(0.85);
-  }
-
-  input[type='date'].field-input:hover::-webkit-calendar-picker-indicator,
-  input[type='date'].field-input:focus::-webkit-calendar-picker-indicator {
-    opacity: 1;
   }
 }
 

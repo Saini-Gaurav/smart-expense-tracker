@@ -48,12 +48,12 @@ Save PNGs in **`docs/screenshots/`** using these **exact filenames**, commit, an
 
 | File name | Label (what reviewers see above) |
 | --- | --- |
-| `01-login.png` | Login page — sign in with email and password |
-| `02-register.png` | Register page — create account |
-| `03-overview-dashboard.png` | Overview dashboard — summary cards, date range, and charts |
-| `04-expenses-list.png` | Expenses — filters, sort, and paginated list |
-| `05-add-or-edit-expense.png` | Add or edit expense — modal with title, amount, category, date, notes |
-| `06-mobile-drawer.png` | Mobile layout — sidebar drawer or narrow viewport |
+| `login.png` | Login page — sign in with email and password |
+| `register.png` | Register page — create account |
+| `overview-dashboard.png` | Overview dashboard — summary cards, date range, and charts |
+| `expenses-list.png` | Expenses — filters, sort, and paginated list |
+| `add-or-edit-expense.png` | Add or edit expense — modal with title, amount, category, date, notes |
+| `mobile-drawer.png` | Mobile layout — sidebar drawer or narrow viewport |
 
 ---
 
